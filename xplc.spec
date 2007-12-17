@@ -20,7 +20,6 @@ Patch0:		xplc-0.3.13-devel-location.patch
 # rename uuidgen to xplc-uuidgen
 Patch1:		xplc-0.3.13-uuidgen.patch
 BuildRequires:	libext2fs-devel
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 XPLC ("Cross-Platform Lightweight Components") is a component system that will
