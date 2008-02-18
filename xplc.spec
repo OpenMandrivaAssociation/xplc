@@ -12,7 +12,7 @@ Release: 	%{release}
 License: 	LGPL
 Group:          System/Libraries
 Group:          Development/C
-Summary: 	XPLC is a component system
+Summary: 	Component system
 URL: 		http://xplc.sourceforge.net
 Source: 	http://downloads.sourceforge.net/xplc/%{name}-%{version}.tar.bz2
 # Install devel libraries to /usr/lib and not /usr/lib/%name-%version
@@ -30,7 +30,7 @@ possible overhead (both in machine resources and programming effort).
 
 %package uuidgen
 Group:		System/Libraries
-Summary: 	XPLC is a component system
+Summary: 	Component system
 
 %description uuidgen
 XPLC ("Cross-Platform Lightweight Components") is a component system that will
@@ -43,7 +43,7 @@ tool in the e2fs-progs package.
 
 %package -n %{libname}
 Group:          System/Libraries
-Summary: 	XPLC is a component system
+Summary: 	Component system
 
 %description -n %{libname}
 XPLC ("Cross-Platform Lightweight Components") is a component system that will
