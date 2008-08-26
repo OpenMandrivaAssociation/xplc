@@ -4,12 +4,12 @@
 
 %define major	0
 %define libname %mklibname %{name} %{major}
-%define libname_orig lib%{name}
+%define develname %mklibname -d %name
 
 Name:		%{name}
 Version: 	%{version}
 Release: 	%{release}
-License: 	LGPL
+License: 	LGPLv2+
 Group:          System/Libraries
 Group:          Development/C
 Summary: 	Component system
@@ -19,6 +19,7 @@ Source: 	http://downloads.sourceforge.net/xplc/%{name}-%{version}.tar.bz2
 Patch0:		xplc-0.3.13-devel-location.patch
 # rename uuidgen to xplc-uuidgen
 Patch1:		xplc-0.3.13-uuidgen.patch
+Patch2:		xplc-0.3.13-as-needed.patch
 BuildRequires:	libext2fs-devel
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -51,14 +52,15 @@ provide extensibility and reusability both inside and between applications,
 while being portable across platforms (and languages) and having the lowest 
 possible overhead (both in machine resources and programming effort).
 
-%package -n %{libname}-devel
+%package -n %{develname}
 Summary: Development files for XPLC
 Group: Development/C
 Requires: %{libname} = %{version}-%{release}
-Provides: %{libname_orig}-devel = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
+Provides: lib%{name}-devel = %{version}-%{release}
+Obsoletes: %{mklibname -d xplc 0}
 
-%description -n %{libname}-devel
+%description -n %{develname}
 XPLC ("Cross-Platform Lightweight Components") is a component system that will
 provide extensibility and reusability both inside and between applications, 
 while being portable across platforms (and languages) and having the lowest 
@@ -70,15 +72,15 @@ XPLC.
 %setup -q
 %patch0 -p1 -b .devel
 %patch1 -p1 -b .uuid
+%patch2 -p0 -b .needed
 
 %build
-%configure
-
+%configure2_5x
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -99,12 +101,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %{libname}
 %doc NEWS README TODO
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
-%dir %{_includedir}/%{name}-%{version}
-%{_includedir}/%{name}-%{version}/*
+%{_includedir}/%{name}-%{version}
 %{_libdir}/*.a
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
