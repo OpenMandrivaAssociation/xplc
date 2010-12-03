@@ -1,6 +1,6 @@
 %define name 	xplc
 %define version 0.3.13
-%define release %mkrel 6
+%define release %mkrel 7
 
 %define major	0
 %define libname %mklibname %{name} %{major}
