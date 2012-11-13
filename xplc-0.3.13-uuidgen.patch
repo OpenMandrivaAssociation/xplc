@@ -1,0 +1,19 @@
+--- xplc-0.3.13/config/rules.mk		2007-04-26 12:55:53.000000000 -0700
++++ xplc-0.3.13/config/rules.mk.uuidgen	2007-04-26 13:43:53.000000000 -0700
+@@ -115,12 +115,12 @@ install: default installdirs
+ 	$(INSTALL_DATA) libxplc-cxx.a $(DESTDIR)$(libdir)
+ 	$(INSTALL_DATA) dist/xplc.pc $(DESTDIR)$(libdir)/pkgconfig/xplc$(pc_version).pc
+ 	$(INSTALL_DATA) $(wildcard include/xplc/*.h) $(DESTDIR)$(includedir)$(xplcdir_version)/xplc
+-	$(INSTALL_PROGRAM) uuid/bin/uuidgen $(DESTDIR)$(bindir)
+-	$(INSTALL_DATA) uuid/bin/uuidgen.1 $(DESTDIR)$(mandir)/man1
++	$(INSTALL_PROGRAM) uuid/bin/uuidgen $(DESTDIR)$(bindir)/xplc-uuidgen
++	$(INSTALL_DATA) uuid/bin/uuidgen.1 $(DESTDIR)$(mandir)/man1/xplc-uuidgen.1
+ 	$(LN_S) libxplc.so.$(PACKAGE_VERSION) $(DESTDIR)$(libdir)/libxplc.so
+ 	$(LN_S) libxplc.a $(DESTDIR)$(libdir)/libxplc_s.a
+-	$(LN_S) uuidgen $(DESTDIR)$(bindir)/uuidcdef
+-	$(LN_S) uuidgen.1 $(DESTDIR)$(mandir)/man1/uuidcdef.1
++	$(LN_S) xplc-uuidgen $(DESTDIR)$(bindir)/uuidcdef
++	$(LN_S) xplc-uuidgen.1 $(DESTDIR)$(mandir)/man1/uuidcdef.1
+ 
+ uninstall:
+ 	rm -f $(DESTDIR)$(libdir)/libxplc.so.$(PACKAGE_VERSION) $(DESTDIR)$(libdir)$(xplcdir_version)/libxplc.so
