@@ -4,12 +4,13 @@
 
 Name:		xplc
 Version:	0.3.13
-Release:	12
+Release:	13
 License: 	LGPLv2+
 Group:		System/Libraries
 Summary:	Component system
 URL:		http://xplc.sourceforge.net
 Source:		http://downloads.sourceforge.net/xplc/%{name}-%{version}.tar.bz2
+Source100:	xplc.rpmlintrc
 # Install devel libraries to /usr/lib and not /usr/lib/%name-%version
 Patch0:		xplc-0.3.13-devel-location.patch
 # rename uuidgen to xplc-uuidgen
