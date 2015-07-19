@@ -4,7 +4,7 @@
 
 Name:		xplc
 Version:	0.3.13
-Release:	20
+Release:	21
 License: 	LGPLv2+
 Group:		System/Libraries
 Summary:	Component system
