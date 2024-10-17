@@ -8,7 +8,7 @@ Release:	24
 License: 	LGPLv2+
 Group:		System/Libraries
 Summary:	Component system
-URL:		http://xplc.sourceforge.net
+URL:		https://xplc.sourceforge.net
 Source:		http://downloads.sourceforge.net/xplc/%{name}-%{version}.tar.bz2
 Source100:	xplc.rpmlintrc
 # Install devel libraries to /usr/lib and not /usr/lib/%name-%version
