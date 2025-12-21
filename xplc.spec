@@ -16,6 +16,11 @@ Patch0:		xplc-0.3.13-devel-location.patch
 # rename uuidgen to xplc-uuidgen
 Patch1:		xplc-0.3.13-uuidgen.patch
 Patch2:		xplc-0.3.13-as-needed.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(ext2fs)
 
 %description
